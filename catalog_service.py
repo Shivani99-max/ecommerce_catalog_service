@@ -38,7 +38,7 @@ def build_get_products_query(name=None, category=None, price=None, is_active=Non
 
 
 # Create Product
-@app.route('/products', methods=['POST'])
+@app.route('/v1/products', methods=['POST'])
 def create_product():
     data = request.json
     conn = get_db_connection()
@@ -67,7 +67,7 @@ def create_product():
 
 
 # ---- READ multiple Products ----
-@app.route('/products', methods=['GET'])
+@app.route('/v1/products', methods=['GET'])
 def get_products():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
@@ -87,7 +87,7 @@ def get_products():
     
 
 # ---- READ single Product ----
-@app.route('/products/<int:product_id>', methods=['GET'])
+@app.route('/v1/products/<int:product_id>', methods=['GET'])
 def get_product(product_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
@@ -103,7 +103,7 @@ def get_product(product_id):
 
 
 # ---- UPDATE Product ----
-@app.route('/products/<int:product_id>', methods=['PUT'])
+@app.route('/v1/products/<int:product_id>', methods=['PUT'])
 def update_product(product_id):
     data = request.json
     conn = get_db_connection()
@@ -126,7 +126,7 @@ def update_product(product_id):
 
 # ---- DELETE Product ----
 # Deletes single product using Product ID
-@app.route('/products/<int:product_id>', methods=['DELETE'])
+@app.route('/v1/products/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
     conn = get_db_connection()
     cursor = conn.cursor()
