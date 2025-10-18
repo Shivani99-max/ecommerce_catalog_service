@@ -38,7 +38,7 @@ def build_get_products_query(name=None, category=None, price=None, is_active=Non
 
 
 # Create Product
-@app.route('/v1/products', methods=['POST'])
+@app.route('/v1/product', methods=['POST'])
 def create_product():
     data = request.json
     conn = get_db_connection()
